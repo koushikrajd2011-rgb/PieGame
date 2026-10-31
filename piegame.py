@@ -2,9 +2,14 @@
 import pygame
 import random
 import math
+import os
+import sys
 
 pygame.init()
 
+if getattr(sys, "frozen", False):
+    os.chdir(sys._MEIPASS)
+    
 catch_sound = pygame.mixer.Sound("assets/catch.mp3")
 hurt_sound = pygame.mixer.Sound("assets/hurt.mp3")
 gameover_sound = pygame.mixer.Sound("assets/gameover.mp3")
@@ -67,8 +72,8 @@ while True:
                 player_x = 350
                 object_x = random.randint(0,725)
                 object_y = -75
-                teddy_x = random.randint(0,735)
-                teddy_y = -300
+                blast_x = random.randint(0,735)
+                blast_y = -300
                 player_vel_x = 0
 
         if event.type == pygame.KEYUP:
